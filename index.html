@@ -6,10 +6,10 @@
 @font-face{font-family:"NoBH-Bold";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/nobh/NoBH-Bold.woff2") format("woff2");font-weight:normal;font-style:normal;font-display:swap}
 /* Ask Scalzo. Every rule is scoped to .asz-app so the app can sit inside another page.
    Layout: two-panel card, portrait panel left, conversation right; stacks on phones. */
-.asz-app{--asz-bg:#f2f4f3;--asz-surface:#f4f4f4;--asz-ink:#192b2a;--asz-muted:#526661;--asz-line:#cbd2cf;--asz-line-soft:#e0e6e2;--asz-panel:#dce9e0;--asz-forest:#214b39;--asz-on-forest:#fff;--asz-on-forest-muted:#d2e2d8;--asz-chip:#edf1ee;--asz-chip-ink:#3b5547;--asz-focus:#225e45;--asz-ink-filter:none;
+.asz-app{--asz-bg:#f2f4f3;--asz-surface:#f4f4f4;--asz-ink:#192b2a;--asz-muted:#526661;--asz-line:#cbd2cf;--asz-line-soft:#e0e6e2;--asz-panel:#dce9e0;--asz-forest:#214b39;--asz-on-forest:#fff;--asz-on-forest-muted:#d2e2d8;--asz-focus:#225e45;--asz-button-ink:#f9f9f9;--asz-ink-filter:none;
 --asz-head:"Head-Bold",sans-serif;--asz-text:"NoBH-Regular",sans-serif;--asz-text-bold:"NoBH-Bold",sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .asz-app{--asz-bg:#111917;--asz-surface:#18221f;--asz-ink:#e3ece8;--asz-muted:#9fb2aa;--asz-line:#2f3d38;--asz-line-soft:#26332f;--asz-panel:#1f322a;--asz-forest:#2f6a51;--asz-on-forest:#f4faf7;--asz-on-forest-muted:#c3d8cc;--asz-chip:#22302b;--asz-chip-ink:#bcd2c6;--asz-focus:#7cc4a2;--asz-ink-filter:invert(1) brightness(.92);color-scheme:dark}}
-:root[data-theme="dark"] .asz-app{--asz-bg:#111917;--asz-surface:#18221f;--asz-ink:#e3ece8;--asz-muted:#9fb2aa;--asz-line:#2f3d38;--asz-line-soft:#26332f;--asz-panel:#1f322a;--asz-forest:#2f6a51;--asz-on-forest:#f4faf7;--asz-on-forest-muted:#c3d8cc;--asz-chip:#22302b;--asz-chip-ink:#bcd2c6;--asz-focus:#7cc4a2;--asz-ink-filter:invert(1) brightness(.92);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .asz-app{--asz-bg:#111917;--asz-surface:#18221f;--asz-ink:#e3ece8;--asz-muted:#9fb2aa;--asz-line:#2f3d38;--asz-line-soft:#26332f;--asz-panel:#1f322a;--asz-forest:#2f6a51;--asz-on-forest:#f4faf7;--asz-on-forest-muted:#c3d8cc;--asz-focus:#7cc4a2;--asz-ink-filter:invert(1) brightness(.92);color-scheme:dark}}
+:root[data-theme="dark"] .asz-app{--asz-bg:#111917;--asz-surface:#18221f;--asz-ink:#e3ece8;--asz-muted:#9fb2aa;--asz-line:#2f3d38;--asz-line-soft:#26332f;--asz-panel:#1f322a;--asz-forest:#2f6a51;--asz-on-forest:#f4faf7;--asz-on-forest-muted:#c3d8cc;--asz-focus:#7cc4a2;--asz-ink-filter:invert(1) brightness(.92);color-scheme:dark}
 .asz-app,.asz-app *{box-sizing:border-box}
 .asz-app{display:block;width:100%;height:auto;margin:0;padding:0;border-radius:6px;overflow:hidden;background:var(--asz-bg);color:var(--asz-ink);font-family:var(--asz-text);font-weight:normal}
 .asz-app [hidden]{display:none!important}
@@ -37,9 +37,9 @@
 .asz-question-label{display:block;font:normal 16px var(--asz-text-bold);margin-bottom:12px}
 .asz-input-row{display:flex;gap:8px}
 .asz-input{width:100%;min-width:0;margin:0;padding:14px;border:1px solid var(--asz-line);border-radius:9px;font-size:16px;background:var(--asz-surface);color:var(--asz-ink)}
-.asz-ask{background:var(--asz-forest);color:var(--asz-on-forest);border:0;border-radius:9px;padding:0 20px;margin:0}
+.asz-ask{background:var(--asz-forest);color:var(--asz-button-ink);border:0;border-radius:9px;padding:0 20px;margin:0}
 .asz-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.asz-suggestion{border:0;background:var(--asz-chip);color:var(--asz-chip-ink);border-radius:6px;font-size:14px;padding:8px 10px;margin:0}
+.asz-suggestion{border:0;background:var(--asz-forest);color:var(--asz-button-ink);border-radius:6px;font-size:14px;padding:8px 10px;margin:0}
 .asz-bump{animation:asz-bump .4s ease}@keyframes asz-bump{50%{transform:translateY(-8px) rotate(-2deg)}}
 @media (prefers-reduced-motion:reduce){.asz-bump{animation:none}.asz-portrait:hover{transform:none}}
 @media (max-width:700px){.asz-title{font-size:28px}.asz-card{grid-template-columns:1fr}.asz-character{padding-top:96px}.asz-frames{width:min(100%,calc(230px * 720 / 678))}.asz-portrait{max-width:300px}.asz-tag{top:20px}.asz-tap{left:-7.8%;top:14.7%;width:26.6%}.asz-portrait .asz-tap .asz-tap-desk{display:none}.asz-portrait .asz-tap .asz-tap-mob{display:block}.asz-name{padding:16px 22px}.asz-name-title{font-size:24px}.asz-content{padding:24px}.asz-quote{font-size:24px}.asz-result{min-height:180px}}
