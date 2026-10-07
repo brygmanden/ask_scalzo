@@ -1,26 +1,29 @@
 <body>
 <title>Ask Scalzo</title>
 <style>
+@font-face{font-family:"Head";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/head/Head-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"NoBH";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/nobh/NoBH-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"NoBH";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/nobh/NoBH-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 /* Layout: two-panel card, portrait panel left, conversation right; stacks on phones */
 :root{--bg:#f2f4f3;--surface:#fff;--ink:#192b2a;--muted:#526661;--line:#cbd2cf;--line-soft:#e0e6e2;--panel:#dce9e0;--forest:#214b39;--on-forest:#fff;--on-forest-muted:#d2e2d8;--chip:#edf1ee;--chip-ink:#3b5547;--tap:#eff6b2;--tap-ink:#233d28;--focus:#225e45;
---serif:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif}
+--display:"Head",sans-serif;--body:"NoBH",sans-serif}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111917;--surface:#18221f;--ink:#e3ece8;--muted:#9fb2aa;--line:#2f3d38;--line-soft:#26332f;--panel:#1f322a;--forest:#2f6a51;--on-forest:#f4faf7;--on-forest-muted:#c3d8cc;--chip:#22302b;--chip-ink:#bcd2c6;--tap:#e4ee9c;--tap-ink:#1d2f20;--focus:#7cc4a2;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#111917;--surface:#18221f;--ink:#e3ece8;--muted:#9fb2aa;--line:#2f3d38;--line-soft:#26332f;--panel:#1f322a;--forest:#2f6a51;--on-forest:#f4faf7;--on-forest-muted:#c3d8cc;--chip:#22302b;--chip-ink:#bcd2c6;--tap:#e4ee9c;--tap-ink:#1d2f20;--focus:#7cc4a2;color-scheme:dark}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body)}
 main{width:100%;height:auto;margin:0;padding:0}
-h1{font:normal 34px/1.15 var(--serif);margin:0 0 22px;text-wrap:balance}.card{width:100%;height:auto;display:grid;grid-template-columns:34% 66%;background:var(--surface);border-radius:6px;overflow:hidden;box-shadow:0 15px 50px rgb(20 52 42 / .06)}
+h1{font:700 34px/1.15 var(--display);margin:0 0 22px;text-wrap:balance}.card{width:100%;height:auto;display:grid;grid-template-columns:34% 66%;background:var(--surface);border-radius:6px;overflow:hidden;box-shadow:0 15px 50px rgb(20 52 42 / .06)}
 .character{background:var(--panel);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:end;padding-top:120px}
 .tag{position:absolute;top:26px;left:26px;text-transform:uppercase;letter-spacing:1.8px;font-size:12px;font-weight:bold}
 .portrait{border:0;background:none;width:100%;padding:0;cursor:pointer;position:relative;color:inherit}
 .portrait img{display:block;width:100%;height:340px;object-fit:contain;object-position:bottom}
 .portrait:hover{transform:rotate(-1deg)}.portrait:focus-visible{outline:3px solid var(--focus);outline-offset:-4px}
 .tap{position:absolute;right:14px;top:130px;border:1px solid var(--tap-ink);border-radius:50%;background:var(--tap);color:var(--tap-ink);padding:13px 10px;font-size:14px;box-shadow:0 4px 0 rgb(35 61 40 / .1)}
-.name{width:100%;background:var(--forest);color:var(--on-forest);padding:20px 26px}.name strong{font:28px var(--serif);display:block}.name span{font-size:14px;display:block;margin-top:5px;color:var(--on-forest-muted)}
+.name{width:100%;background:var(--forest);color:var(--on-forest);padding:20px 26px}.name strong{font:700 28px var(--display);display:block}.name span{font-size:14px;display:block;margin-top:5px;color:var(--on-forest-muted)}
 .content{padding:32px;min-width:0;display:flex;flex-direction:column}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .label{font-size:12px;letter-spacing:1.6px;font-weight:bold;color:var(--muted);text-transform:uppercase}
-.result{min-height:195px}.quote{font:27px/1.35 var(--serif);margin:17px 0}.source{font-size:14px;color:var(--muted)}
+.result{min-height:195px}.quote{font:700 27px/1.35 var(--display);margin:17px 0}.source{font-size:14px;color:var(--muted)}
 .result details{margin-top:12px;font-size:14px;line-height:1.5}.result summary{cursor:pointer}
-form{margin-top:auto;border-top:1px solid var(--line-soft);padding-top:22px}label{display:block;font-weight:600;margin-bottom:12px;font-size:16px}
+form{margin-top:auto;border-top:1px solid var(--line-soft);padding-top:22px}label{display:block;font-weight:700;margin-bottom:12px;font-size:16px}
 .input-row{display:flex;gap:8px}input{width:100%;min-width:0;padding:14px;border:1px solid var(--line);border-radius:9px;font-size:16px;background:var(--surface);color:var(--ink)}
 .ask{background:var(--forest);color:var(--on-forest);border:0;border-radius:9px;padding:0 20px}
 .suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.suggestions button{border:0;background:var(--chip);color:var(--chip-ink);border-radius:6px;font-size:14px;padding:8px 10px}
@@ -35,7 +38,7 @@ const time=s=>s.slice(3,8);
 function pearl(){if(!data)return;const p=data.quotes[index++%data.quotes.length];result.innerHTML=`<div class="label">${escape(p.title)}</div><blockquote class="quote">“${escape(p.text)}”</blockquote>`;portrait.classList.remove('bump');void portrait.offsetWidth;portrait.classList.add('bump')}
 const stop=new Set('how should i the a an is are do does can what my me of to about in on and why it for with would tell be you we this that much'.split(' '));
 function words(s){return s.toLowerCase().replace(/labour/g,'labor').replace(/pricing|priced/g,'price').replace(/staffing/g,'staff').match(/[a-z0-9]+/g)?.filter(x=>!stop.has(x))||[]}
-function ask(){if(!data)return;const question=q.value.trim();if(!question)return;if(/^(give|tell|provide|show).*(quote|pearl)|^quote$/i.test(question)){pearl();return}const terms=words(question);const ranked=data.sections.map(s=>{const ks=words(s.keywords+' '+s.title);return {s,score:terms.reduce((v,t)=>v+(ks.includes(t)?4:0)+(words(s.title).includes(t)?2:0),0)}}).sort((a,b)=>b.score-a.score);if(!terms.length||!ranked[0].score){result.innerHTML='<div class="label">Outside the interview</div><p class="quote">I couldn’t find a clear match in this interview.</p><p class="source">Try asking about cash flow, staff, menu costing, waste, or running a cafe. Lesson text hasn’t been added to this prototype yet.</p>';return}const s=ranked[0].s;const cues=s.text.split(/(?<=[.!?])\s+/);const scored=cues.map((text,i)=>({text,i,score:words(text).filter(t=>terms.includes(t)).length})).sort((a,b)=>b.score-a.score);let excerpt=cues.slice(Math.max(0,scored[0].i-1),scored[0].i+3).join(' ');result.innerHTML=`<div class="label">Relevant interview passage · ${escape(s.title)}</div><p style="font:21px/1.5 Georgia,serif;margin:18px 0">${escape(excerpt)}</p><div class="source">Matt Perger & John Scalzo · From ${time(s.time)}</div><details><summary>Read the full passage</summary><p>${escape(s.text)}</p></details>`}
+function ask(){if(!data)return;const question=q.value.trim();if(!question)return;if(/^(give|tell|provide|show).*(quote|pearl)|^quote$/i.test(question)){pearl();return}const terms=words(question);const ranked=data.sections.map(s=>{const ks=words(s.keywords+' '+s.title);return {s,score:terms.reduce((v,t)=>v+(ks.includes(t)?4:0)+(words(s.title).includes(t)?2:0),0)}}).sort((a,b)=>b.score-a.score);if(!terms.length||!ranked[0].score){result.innerHTML='<div class="label">Outside the interview</div><p class="quote">I couldn’t find a clear match in this interview.</p><p class="source">Try asking about cash flow, staff, menu costing, waste, or running a cafe. Lesson text hasn’t been added to this prototype yet.</p>';return}const s=ranked[0].s;const cues=s.text.split(/(?<=[.!?])\s+/);const scored=cues.map((text,i)=>({text,i,score:words(text).filter(t=>terms.includes(t)).length})).sort((a,b)=>b.score-a.score);let excerpt=cues.slice(Math.max(0,scored[0].i-1),scored[0].i+3).join(' ');result.innerHTML=`<div class="label">Relevant interview passage · ${escape(s.title)}</div><p style="font:19px/1.55 var(--body);margin:18px 0">${escape(excerpt)}</p><div class="source">Matt Perger & John Scalzo · From ${time(s.time)}</div><details><summary>Read the full passage</summary><p>${escape(s.text)}</p></details>`}
 document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();ask()});portrait.addEventListener('click',pearl);document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{q.value=b.dataset.q;ask()}));data=window.SCALZO_DATA;pearl();
 
 
