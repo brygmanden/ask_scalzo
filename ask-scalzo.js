@@ -1,9 +1,12 @@
-/* Ask Scalzo app. Served from https://brygmanden.github.io/ask_scalzo/ask-scalzo.js
-   Embed: <div id="asz-mount"></div> plus this script (and ask-scalzo.css). The script renders the app into a Shadow DOM inside the mount. */
-(function(){
-var script=document.currentScript;
-var BASE=script&&script.src?script.src.replace(/[^\/]*$/,''):'https://brygmanden.github.io/ask_scalzo/';
-var HTML="<div class=\"asz-app\" id=\"asz-app\"><section class=\"asz-card\" aria-label=\"Ask John Scalzo\"><div class=\"asz-character\"><span class=\"asz-tag\">John’s in your corner</span><button type=\"button\" class=\"asz-portrait\" id=\"asz-portrait\" aria-label=\"Tap Scalzo on the shoulder for a quote\"><span class=\"asz-frames\"><img src=\"{{BASE}}img/john.webp\" alt=\"Illustrated John Scalzo in a burgundy T-shirt, hands clasped on a table\"><span class=\"asz-tap\" aria-hidden=\"true\"><img class=\"asz-tap-desk\" src=\"{{BASE}}img/tap-desktop.webp\" alt=\"\"><img class=\"asz-tap-mob\" src=\"{{BASE}}img/tap-mobile.webp\" alt=\"\"></span></span></button><div class=\"asz-name\"><span class=\"asz-name-title\">Ask John Scalzo</span><span class=\"asz-name-sub\">In conversation with Matt Perger</span></div></div><div class=\"asz-content\"><h1 class=\"asz-title\">A little wisdom before you go</h1><div class=\"asz-result\" id=\"asz-result\" aria-live=\"polite\"></div><form class=\"asz-form\" id=\"asz-form\"><label class=\"asz-question-label\" for=\"asz-q\">Ask a question – What’s on your mind?</label><div class=\"asz-input-row\"><input class=\"asz-input\" id=\"asz-q\" maxlength=\"500\" placeholder=\"How should I think about labour costs?\" required><button class=\"asz-ask\" type=\"submit\">Ask<svg class=\"asz-ask-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><path d=\"M15.5 15.5 21 21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></svg></button></div><div class=\"asz-suggestions\"><button type=\"button\" class=\"asz-suggestion\" data-asz-q=\"Why is cash flow important?\">Cash flow</button><button type=\"button\" class=\"asz-suggestion\" data-asz-q=\"How should I price my menu?\">Menu pricing</button><button type=\"button\" class=\"asz-suggestion\" data-asz-q=\"How do I reduce waste?\">Reducing waste</button></div></form></div></section></div>";
+/* Ask Scalzo app, served from https://brygmanden.github.io/ask_scalzo/ask-scalzo.js
+   Embed (all inside <body>):
+     <link rel="stylesheet" href="https://brygmanden.github.io/ask_scalzo/ask-scalzo.css">
+     <div id="asz-mount"></div>
+     <script src="https://brygmanden.github.io/ask_scalzo/ask-scalzo.js" defer></script>
+   Nothing runs until the DOMContentLoaded event; the app then renders into a Shadow DOM inside #asz-mount. */
+document.addEventListener('DOMContentLoaded',function(){
+var BASE='https://brygmanden.github.io/ask_scalzo/';
+var HTML="<div class=\"asz-app\" id=\"asz-app\"><section class=\"asz-card\" aria-label=\"Ask John Scalzo\"><div class=\"asz-character\"><span class=\"asz-tag\">John’s in your corner</span><button type=\"button\" class=\"asz-portrait\" id=\"asz-portrait\" aria-label=\"Tap Scalzo on the shoulder for a quote\"><span class=\"asz-frames\"><img src=\"https://brygmanden.github.io/ask_scalzo/img/john.webp\" alt=\"Illustrated John Scalzo in a burgundy T-shirt, hands clasped on a table\"><span class=\"asz-tap\" aria-hidden=\"true\"><img class=\"asz-tap-desk\" src=\"https://brygmanden.github.io/ask_scalzo/img/tap-desktop.webp\" alt=\"\"><img class=\"asz-tap-mob\" src=\"https://brygmanden.github.io/ask_scalzo/img/tap-mobile.webp\" alt=\"\"></span></span></button><div class=\"asz-name\"><span class=\"asz-name-title\">Ask John Scalzo</span><span class=\"asz-name-sub\">In conversation with Matt Perger</span></div></div><div class=\"asz-content\"><h1 class=\"asz-title\">A little wisdom before you go</h1><div class=\"asz-result\" id=\"asz-result\" aria-live=\"polite\"></div><form class=\"asz-form\" id=\"asz-form\"><label class=\"asz-question-label\" for=\"asz-q\">Ask a question – What’s on your mind?</label><div class=\"asz-input-row\"><input class=\"asz-input\" id=\"asz-q\" maxlength=\"500\" placeholder=\"How should I think about labour costs?\" required><button class=\"asz-ask\" type=\"submit\">Ask<svg class=\"asz-ask-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><path d=\"M15.5 15.5 21 21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></svg></button></div><div class=\"asz-suggestions\"><button type=\"button\" class=\"asz-suggestion\" data-asz-q=\"Why is cash flow important?\">Cash flow</button><button type=\"button\" class=\"asz-suggestion\" data-asz-q=\"How should I price my menu?\">Menu pricing</button><button type=\"button\" class=\"asz-suggestion\" data-asz-q=\"How do I reduce waste?\">Reducing waste</button></div></form></div></section></div>";
 function ensureCss(){
   if(document.querySelector('link[href*="ask-scalzo.css"]'))return;
   var l=document.createElement('link');l.rel='stylesheet';l.href=BASE+'ask-scalzo.css';document.head.appendChild(l);
@@ -17,7 +20,7 @@ function boot(){
   var root=mount.attachShadow?mount.attachShadow({mode:'open'}):mount;
   var link=document.createElement('link');link.rel='stylesheet';link.href=BASE+'ask-scalzo.css';
   var done=false;
-  function render(){if(done)return;done=true;var box=document.createElement('div');box.innerHTML=HTML.replace(/\{\{BASE\}\}/g,BASE);root.appendChild(box.firstChild);start(root.getElementById?root:document)}
+  function render(){if(done)return;done=true;var box=document.createElement('div');box.innerHTML=HTML;root.appendChild(box.firstChild);start(root.getElementById?root:document)}
   link.onload=render;link.onerror=render;setTimeout(render,3000);
   root.appendChild(link);
 }
@@ -44,5 +47,5 @@ fit();
 if(window.ResizeObserver)new ResizeObserver(fit).observe(root.querySelector('#asz-app'));else window.addEventListener('resize',fit);
 if(document.fonts){document.fonts.ready.then(fit);document.fonts.addEventListener?.('loadingdone',fit)}
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
-})();
+boot();
+});
