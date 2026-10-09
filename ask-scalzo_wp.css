@@ -1,0 +1,50 @@
+/* Ask Scalzo styles. The app renders inside a Shadow DOM, so page/theme CSS cannot reach it.
+   The @font-face rules must also load in the page itself (fonts declared inside a shadow root are ignored), which is why the embed links this file too.
+   Iframe version, served from https://brygmanden.github.io/ask_scalzo/ask-scalzo_wp.css */
+@font-face{font-family:"Head-Bold";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/head/Head-Bold.woff2") format("woff2");font-weight:normal;font-style:normal;font-display:swap}
+@font-face{font-family:"NoBH-Regular";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/nobh/NoBH-Regular.woff2") format("woff2");font-weight:normal;font-style:normal;font-display:swap}
+@font-face{font-family:"NoBH-Bold";src:url("https://www.baristahustle.com/wp-content/themes/divi-child/assets/fonts/nobh/NoBH-Bold.woff2") format("woff2");font-weight:normal;font-style:normal;font-display:swap}
+
+:host{all:initial;display:block;width:100%}
+#asz-app{--asz-bg:#f2f4f3;--asz-surface:#f4f4f4;--asz-ink:#192b2a;--asz-muted:#526661;--asz-line:#cbd2cf;--asz-line-soft:#e0e6e2;--asz-panel:#dce9e0;--asz-forest:#214b39;--asz-on-forest:#fff;--asz-on-forest-muted:#d2e2d8;--asz-focus:#225e45;--asz-button-ink:#f9f9f9;--asz-ink-filter:none;
+--asz-head:"Head-Bold",sans-serif;--asz-text:"NoBH-Regular",sans-serif;--asz-text-bold:"NoBH-Bold",sans-serif}
+#asz-app,#asz-app *{box-sizing:border-box}
+#asz-app{container:asz-app / inline-size;display:block;width:100%;height:auto;margin:0;padding:0;border-radius:6px;overflow:hidden;background:var(--asz-bg);color:var(--asz-ink);font-family:var(--asz-text);font-weight:normal}
+#asz-app [hidden]{display:none!important}
+#asz-app{font-size:16px;line-height:1.4;text-align:left;letter-spacing:normal;text-transform:none}
+#asz-app :where(h1,p,blockquote,label,details,summary,span,div,form,section){border:0;padding:0;background:none;box-shadow:none;quotes:none;text-transform:none;letter-spacing:normal;font-style:normal;color:inherit;text-shadow:none}
+#asz-app :where(h1,p,blockquote){margin:0}
+#asz-app :where(img){max-width:none;border:0;box-shadow:none}
+#asz-app :where(input,button){box-shadow:none;text-transform:none;letter-spacing:normal;line-height:normal}
+#asz-app .asz-title{font:normal 34px/1.15 var(--asz-head);margin:0 0 22px;white-space:nowrap;overflow:hidden}
+#asz-app .asz-card{width:100%;height:auto;display:grid;grid-template-columns:34% 66%;background:var(--asz-surface);border-radius:6px;overflow:hidden;box-shadow:0 15px 50px rgb(20 52 42 / .06)}
+#asz-app .asz-character{background:var(--asz-panel);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:end;padding-top:120px}
+#asz-app .asz-tag{position:absolute;top:26px;left:26px;right:26px;white-space:nowrap;overflow:hidden;z-index:1;text-transform:uppercase;letter-spacing:1.8px;font:normal 12px var(--asz-text-bold)}
+#asz-app .asz-portrait{border:0;background:none;width:100%;padding:0;margin:0;cursor:pointer;position:relative;color:inherit;font:inherit}
+#asz-app .asz-frames>img{display:block;width:100%;height:100%}
+#asz-app .asz-portrait:hover{transform:rotate(-1deg)}#asz-app .asz-portrait:focus-visible{outline:3px solid var(--asz-focus);outline-offset:-4px}
+#asz-app .asz-frames{display:block;position:relative;width:min(100%,calc(340px * 720 / 678));max-width:100%;aspect-ratio:720/678;margin:0 auto;transform:translateY(-18px) scale(1.02);transform-origin:50% 100%}#asz-app .asz-frames .asz-talk{position:absolute;inset:0;width:100%;height:100%}
+#asz-app .asz-tap{position:absolute;left:7.5%;top:19.3%;width:17.2%;line-height:0;pointer-events:none}#asz-app .asz-portrait .asz-tap img{display:block;width:100%;height:auto;object-fit:fill;filter:var(--asz-ink-filter)}#asz-app .asz-portrait .asz-tap .asz-tap-mob{display:none}
+#asz-app .asz-name{width:100%;background:var(--asz-forest);color:var(--asz-on-forest);padding:20px 26px}
+#asz-app .asz-name-title{font:normal 28px var(--asz-head);display:block;white-space:nowrap;overflow:hidden;margin-bottom:-6px}#asz-app .asz-name-sub{font-size:14px;display:block;white-space:nowrap;overflow:hidden;margin-top:5px;color:var(--asz-on-forest-muted)}
+#asz-app .asz-content{padding:26px 26px 24px;min-width:0;display:flex;flex-direction:column}
+#asz-app button,#asz-app input{font:inherit}#asz-app button{cursor:pointer}
+#asz-app button:focus-visible,#asz-app input:focus-visible{outline:3px solid var(--asz-focus);outline-offset:2px}
+#asz-app .asz-label{font:normal 12px var(--asz-text-bold);letter-spacing:1.6px;color:var(--asz-muted);text-transform:uppercase}
+#asz-app .asz-result{min-height:195px}#asz-app .asz-result .asz-label{margin:-8px 0 -10px}
+#asz-app .asz-quote{font:normal 27px/1.35 var(--asz-text-bold);margin:17px 0}#asz-app blockquote.asz-quote{font-size:23.8px;line-height:1.25}
+#asz-app .asz-quote.asz-nomatch{font-size:22px;line-height:1.35}
+#asz-app .asz-passage{font:normal 19px/1.55 var(--asz-text-bold);margin:18px 0}
+#asz-app .asz-source{font-size:14px;color:var(--asz-muted)}
+#asz-app .asz-result details{margin-top:12px;font-size:14px;line-height:1.5}#asz-app .asz-result summary{cursor:pointer}
+#asz-app .asz-form{margin:auto 0 0;border-top:1px solid var(--asz-line-soft);padding-top:22px}
+#asz-app .asz-question-label{display:block;font:normal 16px var(--asz-text-bold);margin-bottom:12px}
+#asz-app .asz-input-row{display:flex;gap:8px}
+#asz-app .asz-input{width:100%;min-width:0;height:42px;margin:0;padding:0 14px;border:1px solid var(--asz-line);border-radius:9px;font-size:16px;background:var(--asz-surface);color:var(--asz-ink)}
+#asz-app .asz-ask{display:inline-flex;align-items:center;gap:8px;flex:none;background:var(--asz-forest);color:var(--asz-button-ink);border:0;border-radius:9px;padding:0 20px;margin:0}
+#asz-app .asz-ask-icon{display:block;flex:none}
+#asz-app .asz-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#asz-app .asz-suggestion{border:0;background:var(--asz-forest);color:var(--asz-button-ink);border-radius:6px;font-size:14px;padding:8px 10px;margin:0}
+#asz-app .asz-bump{animation:asz-bump .4s ease}@keyframes asz-bump{50%{transform:translateY(-8px) rotate(-2deg)}}
+@media (prefers-reduced-motion:reduce){#asz-app .asz-bump{animation:none}#asz-app .asz-portrait:hover{transform:none}}
+@container asz-app (max-width:699.98px){#asz-app .asz-title{font-size:28px}#asz-app .asz-card{grid-template-columns:1fr}#asz-app .asz-character{padding-top:96px}#asz-app .asz-frames{width:min(100%,calc(230px * 720 / 678))}#asz-app .asz-portrait{max-width:300px}#asz-app .asz-tag{top:20px;left:22px;right:22px}#asz-app .asz-tap{left:-7.8%;top:14.7%;width:26.6%}#asz-app .asz-portrait .asz-tap .asz-tap-desk{display:none}#asz-app .asz-portrait .asz-tap .asz-tap-mob{display:block}#asz-app .asz-name{padding:16px 22px}#asz-app .asz-name-title{font-size:24px}#asz-app .asz-quote{font-size:24px}#asz-app blockquote.asz-quote{font-size:21.1px}#asz-app .asz-result{min-height:180px}#asz-app .asz-quote.asz-nomatch{font-size:19px}}
