@@ -20,7 +20,7 @@ function boot(){
   var root=mount.attachShadow?mount.attachShadow({mode:'open'}):mount;
   var link=document.createElement('link');link.rel='stylesheet';link.href=BASE+'ask-scalzo.css';
   var done=false;
-  function render(){if(done)return;done=true;var box=document.createElement('div');box.innerHTML=HTML;root.appendChild(box.firstChild);start(root.getElementById?root:document)}
+  function render(){if(done)return;done=true;var box=document.createElement('div');box.innerHTML=HTML;root.appendChild(box.firstChild);start(root.getElementById?root:document);window.dispatchEvent(new Event('asz:loaded'))}
   link.onload=render;link.onerror=render;setTimeout(render,3000);
   root.appendChild(link);
 }

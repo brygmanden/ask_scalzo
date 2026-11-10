@@ -67,6 +67,23 @@
 
   // 2. Ensure initial height measurement after images/fonts finish loading
   window.addEventListener("load", sendHeight);
+
+  // Send the height again even if it has not changed, for a parent page whose
+  // listener starts late (WordPress speed plugins often delay page scripts).
+  function resendHeight() {
+    lastHeight = 0;
+    sendHeight();
+  }
+
+  // 3. Send as soon as the app has rendered (ask-scalzo.js fires "asz:loaded").
+  window.addEventListener("asz:loaded", () => {
+    window.requestAnimationFrame(resendHeight);
+  });
+
+  // 4. Keep resending every 2 seconds while the page is visible.
+  setInterval(() => {
+    if (document.visibilityState !== "hidden") resendHeight();
+  }, 2000);
 })();
 </script>
 </body>
